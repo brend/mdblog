@@ -1,1 +1,7 @@
 <h1>Welcome to {{title}}</h1>
+
+<p>There are {{posts.length}} posts.</p>
+
+<ul>
+  <li *ngFor="let post of posts">{{post.title}}</li>
+</ul>
