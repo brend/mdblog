@@ -1,0 +1,5 @@
+<p *ngIf="!post">No post has been selected.</p>
+
+<p *ngIf="post">Read this one now: {{postContent?.text}}</p>
+
+<markdown [data]="postContent?.text"></markdown>

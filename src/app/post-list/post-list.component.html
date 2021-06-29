@@ -1,0 +1,5 @@
+<p>There are currently {{posts.length}} posts.</p>
+
+<ul>
+    <li *ngFor="let post of posts"><button (click)="selectPost(post)">{{post.title}}</button></li>
+</ul>
