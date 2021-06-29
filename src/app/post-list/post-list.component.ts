@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../model/post';
+import { PostHeader } from '../model/post';
 import { PostsService } from '../services/posts.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PostsService } from '../services/posts.service';
 })
 export class PostListComponent implements OnInit {
 
-  public posts: Post[] = [];
+  public posts: PostHeader[] = [];
 
   constructor(private postsService: PostsService) {}
 
@@ -17,7 +17,7 @@ export class PostListComponent implements OnInit {
     this.posts = await this.postsService.posts();
   }
 
-  public selectPost(post: Post) {
+  public selectPost(post: PostHeader) {
     this.postsService.selectPost(post);
   }
 

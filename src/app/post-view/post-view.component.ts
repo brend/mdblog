@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Content } from '../model/content';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Post } from '../model/post';
 import { PostsService } from '../services/posts.service';
 
@@ -8,19 +8,12 @@ import { PostsService } from '../services/posts.service';
   templateUrl: './post-view.component.html',
   styleUrls: ['./post-view.component.css']
 })
-export class PostViewComponent implements OnInit {
+export class PostViewComponent {
 
-  @Input() public post?: Post;
+  public post: Observable<Post | undefined>;
 
-  public postContent: Content | undefined;
-
-  constructor(private postsService: PostsService) { }
-
-  ngOnInit(): void {
-    this.postsService.selectedPost.subscribe(async post => {
-      this.post = post;
-      this.postContent = post ? await this.postsService.post(post.id) : undefined;
-    });
+  constructor(postsService: PostsService) { 
+    this.post = postsService.selectedPost;
   }
 
 }
