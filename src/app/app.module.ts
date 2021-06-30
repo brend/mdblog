@@ -7,14 +7,16 @@ import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostsService } from './services/posts.service';
-import { PostListComponent } from './post-list/post-list.component';
-import { PostViewComponent } from './post-view/post-view.component';
+import { PostListComponent } from './components/post-list/post-list.component';
+import { PostViewComponent } from './components/post-view/post-view.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostListComponent,
-    PostViewComponent
+    PostViewComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
