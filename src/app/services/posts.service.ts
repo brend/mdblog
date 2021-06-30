@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Post, PostHeader } from '../model/post';
 
 // TODO: make this globally available and such
@@ -13,11 +13,14 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  public selectedPost = new Subject<Post | undefined>();
+  private _selectedPost = new Subject<Post | undefined>();
+  public get selectedPost(): Observable<Post | undefined> {
+    return this._selectedPost;
+  }
 
   public selectPost(post: PostHeader | undefined) {
     this.post(post?.id ?? '').then(post => 
-      this.selectedPost.next(post)
+      this._selectedPost.next(post)
     );
   }
 
