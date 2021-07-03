@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PostsService } from 'src/app/services/posts.service';
 import { Post } from '../../model/post';
 
 @Component({
@@ -6,8 +8,20 @@ import { Post } from '../../model/post';
   templateUrl: './post-view.component.html',
   styleUrls: ['./post-view.component.css']
 })
-export class PostViewComponent {
+export class PostViewComponent implements OnInit {
 
   @Input() public post: Post | undefined | null;
+
+  constructor(private route: ActivatedRoute,  private posts: PostsService) {}
+
+  async ngOnInit() {
+    // First get the product id from the current route.
+    const routeParams = this.route.snapshot.paramMap;
+    const postIdFromRoute = routeParams.get('postId');
+
+    if (postIdFromRoute) {
+      this.post = await this.posts.post(postIdFromRoute);
+    }
+  }
 
 }
