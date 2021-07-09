@@ -1,7 +1,5 @@
-<p>There are currently {{posts.length}} posts.</p>
-
 <div *ngFor="let post of posts; let i = index;">
-    <a [routerLink]="['/post', post.id]"><h3>{{post.id}}</h3></a>
+    <!-- <a [routerLink]="['/post', post.id]"><h3>{{post.id}}</h3></a> -->
     <app-post-view [post]="post"></app-post-view>
     <hr *ngIf="i + 1 < posts.length">
 </div>
