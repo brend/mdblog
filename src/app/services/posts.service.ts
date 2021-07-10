@@ -6,6 +6,11 @@ import { Post, PostHeader } from '../model/post';
 // TODO: make this globally available and such
 const API_PATH = 'http://localhost:8080/api/v1';
 
+export interface CreateResult {
+  success: boolean,
+  message: string,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,4 +36,11 @@ export class PostsService {
   public async post(postId: string | undefined): Promise<Post | undefined> {
     return postId ? this.http.get<Post>(`${API_PATH}/post/${postId}`).toPromise() : undefined;
   }
+
+  public async create(title: string, contents: string): Promise<CreateResult> {
+    const post = {title: title, contents: contents};
+
+    return this.http.post<CreateResult>(`${API_PATH}/post`, post).toPromise();
+  }
+
 }
