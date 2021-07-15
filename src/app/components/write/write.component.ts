@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, Validators } from '@angular/forms';
-import { Post } from 'src/app/model/post';
-import { CreateResult, PostsService } from 'src/app/services/posts.service';
+import { Router } from '@angular/router';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-write',
@@ -12,19 +12,29 @@ export class WriteComponent implements OnInit {
 
   @ViewChild('templateForm') templateForm!: NgForm;
 
-  createResult?: CreateResult;
+  createError?: string;
 
-  show =true;
-
-  constructor(private posts: PostsService) { }
+  constructor(private router:  Router, private posts: PostsService) { }
 
   ngOnInit(): void {
   }
 
   async onSubmit() {
     const post = this.templateForm.value;
+
+    this.createError = undefined;
     
-    this.createResult = await this.posts.create(post.title, post.contents);
+    try {
+      const postId = await this.posts.create(post.title, post.contents);
+
+      console.log('postId', postId);
+
+      if (postId) {
+        this.router.navigate(['/', 'post', postId])
+      }
+    } catch(error) {
+      this.createError = "The post could not be created: " + error.message;
+    }
   }
 
 }

@@ -9,6 +9,7 @@ const API_PATH = 'http://localhost:8080/api/v1';
 export interface CreateResult {
   success: boolean,
   message: string,
+  postId?: string,
 }
 
 @Injectable({
@@ -37,10 +38,11 @@ export class PostsService {
     return postId ? this.http.get<Post>(`${API_PATH}/post/${postId}`).toPromise() : undefined;
   }
 
-  public async create(title: string, contents: string): Promise<CreateResult> {
+  public async create(title: string, contents: string): Promise<string> {
     const post = {title: title, contents: contents};
+    const response = await this.http.post(`${API_PATH}/post`, post, {responseType: 'text'}).toPromise();
 
-    return this.http.post<CreateResult>(`${API_PATH}/post`, post).toPromise();
+    return response  as string;
   }
 
 }
