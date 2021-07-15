@@ -1,0 +1,18 @@
+<p>Editing post "{{post?.id}}"</p>
+
+<form #templateForm="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label for="title">Title</label>
+        <input id="title" name="title" ngModel required>
+    </p>
+    <p>
+        <label for="contents">Post</label>
+        <textarea id="contents" name="contents" ngModel></textarea>
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+    <p *ngIf="errorMessage">
+        The post could not be created: {{errorMessage}}
+    </p>
+</form>

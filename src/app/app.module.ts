@@ -12,6 +12,7 @@ import { PostViewComponent } from './components/post-view/post-view.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { WriteComponent } from './components/write/write.component';
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     PostViewComponent,
     NavigationComponent,
     WriteComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
