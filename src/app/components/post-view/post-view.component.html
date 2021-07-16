@@ -1,2 +1,14 @@
-<p><button (click)="edit()">Edit this post</button></p>
+<p *ngIf="editable"><button (click)="edit()">Edit this post</button></p>
+
+<div *ngIf="post">
+    <div *ngIf="!editable; else nolink">
+        <a [routerLink]="['/post', post.id]">
+            <h2>{{post.title}}</h2>
+        </a>
+    </div>
+    <ng-template #nolink>
+        <h2>{{post.title}}</h2>
+    </ng-template>
+</div>
+
 <markdown [data]="post?.text"></markdown>

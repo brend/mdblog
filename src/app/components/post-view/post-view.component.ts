@@ -12,6 +12,8 @@ export class PostViewComponent implements OnInit {
 
   @Input() public post: Post | undefined | null;
 
+  @Input() public editable: boolean = true;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
