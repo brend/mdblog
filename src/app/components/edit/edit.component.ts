@@ -50,9 +50,12 @@ export class EditComponent implements OnInit {
     this.errorMessage = undefined;
 
     try {
-      await this.posts.update(this.post.id, post.title, post.contents);
-      console.log('I have updated the post', this.post.id);
+      const newPostId = await this.posts.update(this.post.id, post.title, post.contents);
 
+      this.post.id = newPostId;
+      this.post.title = post.title;
+      this.post.text = post.contents;
+      
       this.router.navigate(['/', 'post', this.post.id]);
     } catch(error) {
       this.errorMessage = "The post could not be created: " + error.message;

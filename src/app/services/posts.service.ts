@@ -40,15 +40,16 @@ export class PostsService {
 
   public async create(title: string, contents: string): Promise<string> {
     const post = {title: title, contents: contents};
-    const response = await this.http.post(`${API_PATH}/post`, post, {responseType: 'text'}).toPromise();
+    const postId = await this.http.post(`${API_PATH}/post`, post, {responseType: 'text'}).toPromise();
 
-    return response  as string;
+    return postId  as string;
   }
 
   public async update(postId: string, title: string, contents: string) {
-    const post = {id: postId, title: title, contents: contents};
+    const post = {title: title, contents: contents};
+    const newPostId = await this.http.patch(`${API_PATH}/post/${postId}`, post, {responseType: 'text'}).toPromise();
 
-    await this.http.patch(`${API_PATH}/post/${postId}`, post).toPromise();
+    return newPostId as string;
   }
 
 }
