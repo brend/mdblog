@@ -50,7 +50,7 @@ export class EditComponent implements OnInit {
     this.errorMessage = undefined;
 
     try {
-      //await this.posts.update(this.post.id, post.title, post.contents);
+      await this.posts.update(this.post.id, post.title, post.contents);
       console.log('I have updated the post', this.post.id);
 
       this.router.navigate(['/', 'post', this.post.id]);

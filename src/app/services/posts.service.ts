@@ -45,4 +45,10 @@ export class PostsService {
     return response  as string;
   }
 
+  public async update(postId: string, title: string, contents: string) {
+    const post = {id: postId, title: title, contents: contents};
+
+    await this.http.patch(`${API_PATH}/post/${postId}`, post).toPromise();
+  }
+
 }
