@@ -1,14 +1,17 @@
 <p>Editing post "{{post?.id}}"</p>
 
-<form #templateForm="ngForm" (ngSubmit)="templateForm.valid && onSubmit()">
-    <p>
-        <label for="title">Title</label>
-        <input id="title" name="title" ngModel required appFilenamevalidator>
-    </p>
-    <p>
-        <label for="contents">Post</label>
-        <textarea id="contents" name="contents" ngModel></textarea>
-    </p>
+<form class="needs-validation" #templateForm="ngForm" (ngSubmit)="templateForm.valid && onSubmit()">
+    <div class="form-group">
+        <label class="form-label" for="title">Title</label>
+        <input #title="ngModel" class="formControl"
+            [ngClass]="{ 'is-invalid': templateForm.submitted && title.invalid }" 
+            id="title" name="title" ngModel required appFilenamevalidator>
+        <div class="invalid-feedback">Please use a title that could also be a file name</div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="contents">Post</label>
+        <textarea class="form-control" id="contents" name="contents" ngModel></textarea>
+    </div>
     <p>
         <button type="submit">Submit</button>
         <button type="button" (click)="onCancel()">Cancel</button>
