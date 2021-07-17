@@ -12,6 +12,7 @@ import { PostViewComponent } from './components/post-view/post-view.component';
 import { WriteComponent } from './components/write/write.component';
 import { FormsModule } from '@angular/forms';
 import { EditComponent } from './components/edit/edit.component';
+import { FilenamevalidatorDirective } from './validators/filenamevalidator.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EditComponent } from './components/edit/edit.component';
     PostViewComponent,
     WriteComponent,
     EditComponent,
+    FilenamevalidatorDirective,
   ],
   imports: [
     BrowserModule,
