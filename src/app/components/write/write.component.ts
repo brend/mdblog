@@ -37,4 +37,8 @@ export class WriteComponent implements OnInit {
     }
   }
 
+  onCancel() {
+    this.router.navigate(['/']);
+  }
+
 }

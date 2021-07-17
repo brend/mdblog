@@ -9,6 +9,7 @@
     </p>
     <p>
         <button type="submit">Submit</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
     </p>
     <p *ngIf="createError">
         The post could not be created: {{createError}}
