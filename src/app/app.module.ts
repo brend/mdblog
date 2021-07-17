@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { PostsService } from './services/posts.service';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { WriteComponent } from './components/write/write.component';
 import { FormsModule } from '@angular/forms';
 import { EditComponent } from './components/edit/edit.component';
@@ -19,7 +18,6 @@ import { EditComponent } from './components/edit/edit.component';
     AppComponent,
     PostListComponent,
     PostViewComponent,
-    NavigationComponent,
     WriteComponent,
     EditComponent,
   ],
