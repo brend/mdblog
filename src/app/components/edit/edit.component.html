@@ -1,9 +1,9 @@
 <p>Editing post "{{post?.id}}"</p>
 
-<form #templateForm="ngForm" (ngSubmit)="onSubmit()">
+<form #templateForm="ngForm" (ngSubmit)="templateForm.valid && onSubmit()">
     <p>
         <label for="title">Title</label>
-        <input id="title" name="title" ngModel required>
+        <input id="title" name="title" ngModel required appFilenamevalidator>
     </p>
     <p>
         <label for="contents">Post</label>
