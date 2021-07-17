@@ -56,10 +56,26 @@ export class EditComponent implements OnInit {
       this.post.title = post.title;
       this.post.text = post.contents;
       
-      this.router.navigate(['/', 'post', this.post.id]);
+      this.navigateToPost()
     } catch(error) {
       this.errorMessage = "The post could not be created: " + error.message;
     }
+  }
+
+  onCancel() {
+    if (this.confirmCancellation()) {
+      this.navigateToPost();
+    }
+  }
+
+  navigateToPost() {
+    if (this.post) {
+      this.router.navigate(['/', 'post', this.post.id]);
+    }
+  }
+
+  confirmCancellation(): boolean {
+    return confirm('If you leave now, you\'ll lose any changes you made to the post.');
   }
 
 }
