@@ -38,7 +38,13 @@ export class WriteComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/']);
+    if (this.confirmCancellation()) {
+      this.router.navigate(['/']);
+    }
+  }
+
+  confirmCancellation(): boolean {
+    return confirm('If you leave this page, you will lose your newly created post.');
   }
 
 }
