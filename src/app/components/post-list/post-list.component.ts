@@ -5,7 +5,7 @@ import { PostsService } from '../../services/posts.service';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
 
@@ -20,6 +20,8 @@ export class PostListComponent implements OnInit {
       headers.map(async header => await this.postsService.post(header.id))
         .filter(post => post)
     ) as Post[];
+
+    console.log('mah posts', this.posts);
   }
 
   async fetchPost(header: PostHeader): Promise<Post | undefined> {

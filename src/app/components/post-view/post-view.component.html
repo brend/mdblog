@@ -1,9 +1,9 @@
 <p *ngIf="editable"><button (click)="edit()">Edit this post</button></p>
 
-<div *ngIf="post">
+<div class="card-body" *ngIf="post">
     <div *ngIf="!editable; else nolink">
         <a [routerLink]="['/post', post.id]">
-            <h2>{{post.title}}</h2>
+            <h2 class="card-title">{{post.title}}</h2>
         </a>
     </div>
     <ng-template #nolink>
@@ -11,4 +11,4 @@
     </ng-template>
 </div>
 
-<markdown [data]="post?.text"></markdown>
+<markdown class="card-text" [data]="post?.text"></markdown>

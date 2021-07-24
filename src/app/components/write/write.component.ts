@@ -6,7 +6,7 @@ import { PostsService } from 'src/app/services/posts.service';
 @Component({
   selector: 'app-write',
   templateUrl: './write.component.html',
-  styleUrls: ['./write.component.css']
+  styleUrls: ['./write.component.scss']
 })
 export class WriteComponent implements OnInit {
 

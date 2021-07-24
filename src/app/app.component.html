@@ -1,34 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="['/']">My Blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" [routerLink]="['/']">My Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/']">Posts</a>
-        </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/write']">Write a New Post</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        
-        <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com">Twitter</a>
-        </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/']">Posts</a>
+      </li>
 
-      </ul>
-    </div>
-  </nav>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/write']">Write a New Post</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      
+      <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com">Twitter</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
 
   <div class="jumbotron jumbotron">
     <h1 class="display-4">Welcome to my blog!</h1>
+    <hr/>
     <p class="lead">This is a place where I write about things.</p>
   </div>
 
